@@ -17,3 +17,15 @@ function addLine() {
     celCategory.innerHTML = categoria;
     celValue.innerHTML = valor;
 }
+
+function calcValue() {
+    const table = document.getElementById('table');
+    const tableItens = table.getElementsByTagName('tbody')[0];
+    this.resultValue = document.querySelector('#result-number');
+
+    const total = Array.from(tableItens.rows)
+        .map(row => parseFloat(row.cells[1].textContent.replace("R$", "").trim()) || 0)
+        .reduce((sum, valor) => sum + valor, 0);
+
+    this.resultValue.textContent = total;
+}
