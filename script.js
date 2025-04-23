@@ -26,6 +26,8 @@ function calcValue() {
     const total = Array.from(tableItens.rows)
         .map(row => parseFloat(row.cells[1].textContent.replace("R$", "").trim()) || 0)
         .reduce((sum, valor) => sum + valor, 0);
+        
+        console.log(`Total de gastos: R$ ${total.toFixed(2)}`);
 
-    this.resultValue.textContent = total;
+        this.resultValue.textContent = total;
 }
